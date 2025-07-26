@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carta para Nanda</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #fff;
+        text-align: center;
+        overflow-x: hidden;
+    }
+    h1 {
+        margin-top: 40px;
+        font-size: 2.5em;
+        animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+        0% { text-shadow: 0 0 5px #fff, 0 0 10px #ffb6c1; }
+        50% { text-shadow: 0 0 20px #fff, 0 0 40px #ff69b4; }
+        100% { text-shadow: 0 0 5px #fff, 0 0 10px #ffb6c1; }
+    }
+    .carta {
+        background: rgba(255,255,255,0.2);
+        border-radius: 15px;
+        padding: 20px;
+        margin: 30px auto;
+        width: 90%;
+        max-width: 600px;
+        box-shadow: 0 0 15px rgba(255,255,255,0.3);
+        backdrop-filter: blur(4px);
+        font-size: 1.2em;
+        line-height: 1.6em;
+    }
+    button {
+        background: #ff69b4;
+        border: none;
+        color: #fff;
+        padding: 15px 30px;
+        border-radius: 30px;
+        font-size: 1.2em;
+        cursor: pointer;
+        margin-top: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        transition: transform 0.2s, background 0.3s;
+    }
+    button:hover {
+        background: #ff85c1;
+        transform: scale(1.05);
+    }
+    .surpresa {
+        display: none;
+        margin-top: 30px;
+        font-size: 1.5em;
+        animation: brilho 2s infinite alternate;
+    }
+    @keyframes brilho {
+        from { text-shadow: 0 0 10px #fff; }
+        to { text-shadow: 0 0 20px #ff69b4, 0 0 40px #ff69b4; }
+    }
+    .coraçoes {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: -1;
+    }
+    .coraçoes span {
+        position: absolute;
+        display: block;
+        color: #ff69b4;
+        font-size: 24px;
+        opacity: 0.8;
+        animation: flutuar 6s linear infinite;
+    }
+    @keyframes flutuar {
+        0% { transform: translateY(100vh) translateX(0); opacity: 0.8;}
+        50% { opacity: 1;}
+        100% { transform: translateY(-10vh) translateX(50px); opacity: 0;}
+    }
+</style>
+</head>
+<body>
+    <h1>💖 Feliz Aniversário, Nanda! 🎉</h1>
+    <div class="carta">
+        <p>Hoje é um dia muito especial, o dia que você completa 18 anos! ✨</p>
+        <p>Nanda Abade, você é uma pessoa incrível que ilumina minha vida todos os dias. Sou muito grato por ter você ao meu lado. 💕</p>
+        <p>Que esta nova fase seja cheia de sonhos realizados, alegrias infinitas e momentos inesquecíveis. Saiba que estarei sempre torcendo por você e te apoiando em cada passo. ❤️</p>
+        <p>Com todo o meu carinho,</p>
+        <p><strong>Otávio 💌</strong></p>
+    </div>
+    <button onclick="mostrarSurpresa()">Clique aqui para sua surpresa! 🎁</button>
+    <div class="surpresa" id="surpresa">
+        🎂 Parabéns, minha linda! Te amo MUITO! 💖💖💖 sempre estarei com você
+    </div>
+
+    <div class="coraçoes" id="coraçoes"></div>
+
+<script>
+    function mostrarSurpresa(){
+        document.getElementById('surpresa').style.display = 'block';
+    }
+
+    // Criar corações animados
+    const container = document.getElementById('coraçoes');
+    function criarCoracao() {
+        const coracao = document.createElement('span');
+        coracao.innerHTML = '💗';
+        coracao.style.left = Math.random() * window.innerWidth + 'px';
+        container.appendChild(coracao);
+
+        setTimeout(() => {
+            coracao.remove();
+        }, 6000);
+    }
+    setInterval(criarCoracao, 400);
+</script>
+</body>
+</html>
